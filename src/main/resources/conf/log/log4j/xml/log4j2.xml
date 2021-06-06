@@ -1,0 +1,23 @@
+<!-- see developer/tools/jvm/logging.md in kimera_docs -->
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="debug" strict="true" name="XMLConfigTest">
+    <!--<configuration status="info" strict="true" name="XMLConfigTest">-->
+    <Properties>
+        <Property name="filename">.log/test.log</Property>
+        <Property name="pattern-layout">%d{yyyy-MM-dd HH:mm:ss}|%-5p|%t|%l|%m%n</Property>
+    </Properties>
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern-layout}"/>
+        </Console>
+        <Appender type="File" name="File" fileName="${filename}">
+            <PatternLayout pattern="${pattern-layout}"/>
+        </Appender>
+    </appenders>
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="Console"/>
+            <!--            <appender-ref ref="File"/>-->
+        </root>
+    </loggers>
+</configuration>
