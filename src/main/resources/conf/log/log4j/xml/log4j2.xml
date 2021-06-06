@@ -1,4 +1,3 @@
-<!-- see developer/tools/jvm/logging.md in kimera_docs -->
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration status="debug" strict="true" name="XMLConfigTest">
     <!--<configuration status="info" strict="true" name="XMLConfigTest">-->
@@ -21,3 +20,4 @@
         </root>
     </loggers>
 </configuration>
+<!-- see developer/tools/jvm/logging.md in kimera_docs -->
