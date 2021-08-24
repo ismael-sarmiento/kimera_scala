@@ -60,7 +60,7 @@ case class ErrorHandling[T](src: Try[T])(implicit _errors: mutable.Map[String, L
       case Success(_) => src
       case Failure(e) =>
         _errors.get(key) match {
-          case Some(value) => value.addOne(Failure(e))
+          case Some(value) => value.append(Failure(e))
           case None => _errors.update(TRASH, ListBuffer(Failure(e)))
         }
         Failure(e)
@@ -72,7 +72,7 @@ case class ErrorHandling[T](src: Try[T])(implicit _errors: mutable.Map[String, L
       case Success(_) => src
       case Failure(e) =>
         _errors.get(TRASH) match {
-          case Some(value) => value.addOne(Failure(e))
+          case Some(value) => value.append(Failure(e))
           case None => _errors.update(TRASH, ListBuffer(Failure(e))) // update return Unit VS put return values of map
         }
         Failure(e)
